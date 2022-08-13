@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: postgres:14.3-alpine3.16
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: java2022
+      POSTGRES_USER: robson
+      POSTGRES_DB: heroku
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+    container_name: heroku_postgres
+
+volumes:
+  data:
+    name: heroku_postgres
